@@ -1,0 +1,37 @@
+{% extends "xyz/base.html" %}
+
+
+
+{% block content %}
+    <section id="create-task my-5">
+        <div class="container my-3">
+            <div class="row justify-content-center">
+                <div class="col-11 col-md-8 col-lg-5 p-3 shadow rounded-3 bg-white">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                          <label for="id_title" class="form-label">Title</label>
+                          <input type="text" class="form-control" name="title" id="id_title" placeholder="Task title here ...">
+                        </div>
+                        <div class="form-group mb-3">
+                          <label for="id_description" class="form-label">Description</label>
+                          <textarea name="description" class="form-control" id="id_description" cols="30" rows="4" placeholder="Task description here ..."></textarea>
+                        </div>
+                        <div class="form-group mb-3">
+                          <div class="form-check">
+                            <input type="hidden" name="status" value="False">
+                            <input class="form-check-input" type="checkbox" id="gridCheck" name="status">
+                            <label class="form-check-label" for="gridCheck">
+                              Is Completed?
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary">Create Task</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

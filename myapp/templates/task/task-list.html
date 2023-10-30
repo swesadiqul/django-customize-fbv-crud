@@ -1,0 +1,43 @@
+{% extends "xyz/base.html" %}
+
+
+
+{% block content %}
+    <section id="create-task my-5">
+        <div class="container my-3">
+            <div class="row justify-content-center">
+                <div class="col-11 col-md-10 col-lg-12 p-3 bg-white">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for x in tasks %}
+                          <tr>
+                            <th scope="row">{{ x.id }}</th>
+                            <td>{{ x.title }}</td>
+                            <td>{{ x.description }}</td>
+                            <td>{{ x.status }}</td>
+                            <td>
+                                <a href="/update-task/{{ x.id }}/" class="btn btn-info">Edit</a>
+                                <a href="/delete-task/{{ x.id }}/" class="btn btn-danger">Delete</a>
+                            </td>
+                          </tr>
+                          {% empty %}
+                          <tr>
+                            <th scope="row">Task is not available.</th>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
